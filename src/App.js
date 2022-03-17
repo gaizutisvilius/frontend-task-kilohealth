@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 // MUI
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, responsiveFontSizes } from '@mui/material';
 import GlobalStyles from '@mui/material/GlobalStyles';
 
 // Theme
@@ -12,15 +12,23 @@ import { theme } from './theme';
 import Layout from './hoc/Layout';
 
 // Lazy components
-const Home = React.lazy(() => {
-  return import('./pages/Home');
+const Checkout = React.lazy(() => {
+  return import('./pages/Checkout');
 });
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider
+      theme={responsiveFontSizes(theme, {
+        breakpoints: ['xs', 'sm', 'md'],
+        factor: 2.5,
+      })}
+    >
       <GlobalStyles
         styles={{
+          'body, html': {
+            overflowX: 'hidden',
+          },
           a: {
             '&:active': {
               color: 'unset',
@@ -33,7 +41,7 @@ const App = () => {
       <Layout>
         <Suspense fallback={null}>
           <Routes>
-            <Route index element={<Home />} />
+            <Route index element={<Checkout />} />
           </Routes>
         </Suspense>
       </Layout>

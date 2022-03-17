@@ -1,16 +1,17 @@
 import React from 'react';
 
-// MUI
-import { Box } from '@mui/material';
-
 // Custom components
+import StickyBar from '../../components/StickyBar';
+import Header from '../../components/Header';
 
 const Layout = (props) => {
   const { children } = props;
 
   return (
     <>
-      <Box>{children}</Box>
+      <StickyBar />
+      <Header />
+      {children}
     </>
   );
 };

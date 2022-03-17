@@ -1,0 +1,9 @@
+.carousel-container {
+  overflow: visible;
+  margin-top: 24px;
+  margin-bottom: 72px;
+}
+
+.custom-dot-list-style {
+  bottom: -6%;
+}

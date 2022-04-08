@@ -66,9 +66,6 @@ const CheckoutProgramSection = (props) => {
 
 const SectionRoot = styled('section')(({ theme }) => ({
   width: '100%',
-  [theme.breakpoints.down('sm')]: {
-    boxShadow: '0px 1px 0px rgba(0, 0, 0, 0.08)',
-  },
 }));
 
 export default CheckoutProgramSection;
